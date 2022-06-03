@@ -1,15 +1,24 @@
 import time
 
+from evaluate_game import evaluate_game
 from get_computers_choice import get_computers_choice
 
 
 def play_game():
-    choice = input('Do you want to pick Rock, Paper or Scissors?')
+    user_choice = input('Do you want to pick Rock, Paper or Scissors?')
+    print("Okay, you are playing with", user_choice, ". Wait for it...")
+    print()
     computers_choice = get_computers_choice()
-    print("Okay, got it! Wait for it...")
     time.sleep(3)
-    print("Your choice was:", choice)
-    print("Computers choice was:", computers_choice)
+    print("You played with:", user_choice)
+    print("The computer played with:", computers_choice)
+    result = evaluate_game(user_choice, computers_choice)
+    if result is None:
+        print("It was a draw, go again!")
+    elif result is True:
+        print("Congratulations, you won!")
+    else:
+        print("Sorry, you lost!")
 
 
 def start_new_game():
