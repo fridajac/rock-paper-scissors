@@ -18,7 +18,11 @@ def play_game():
     user_score = 0
     computer_score = 0
     while True:
-        user_choice = input('Do you want to pick Rock, Paper or Scissor?')
+        while True:
+            user_choice = input('Do you want to pick Rock, Paper or Scissor?')
+            if user_choice == 'Scissor' or user_score == 'Rock' or user_score == 'Paper':
+                break
+            print("Bad input. Try again")
         print("Okay, you are playing with", user_choice, ". Wait for it...")
         print()
         computers_choice = get_computers_choice()
